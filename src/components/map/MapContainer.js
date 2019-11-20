@@ -5,7 +5,7 @@ export default class MapContainer extends Component {
     render() {
         return (
             <>
-                Hola mapa
+                <p>Hola mapa</p>
                 <Map />
             </>
         )
