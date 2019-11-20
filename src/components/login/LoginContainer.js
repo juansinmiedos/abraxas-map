@@ -5,7 +5,8 @@ export default class LoginContainer extends Component {
         user: {
             username: '',
             password: ''
-        }
+        },
+        errorChecker: false
     }
 
     handleInput = (e) => {
@@ -15,11 +16,18 @@ export default class LoginContainer extends Component {
         this.setState({ user });
     }
 
-    onSubmit = () => {
+    onSubmit = (e) => {
+        e.preventDefault()
         if(this.state.user.username === 'user@grupoabraxas.com' && this.state.user.password === '123macarena'){
             this.props.history.push('/map')
         } else {
-            // Mostrar el mensaje de error
+            this.setState(prevState => {
+                return{
+                    ...prevState,
+                    errorChecker: true
+                }
+            })
+            console.log(this.state.errorChecker)
         }
     }
 
@@ -29,9 +37,10 @@ export default class LoginContainer extends Component {
                 <div className="form-wrapper">
                     <h2>Abraxas Intelligence</h2>
                     <h2>Iniciar sesión</h2>
-                    <form onSubmit={this.onSubmit}>
-                        <input className="login-input" type="text" name="username" onChange={this.handleInput} placeholder="Nombre de usuario" />
-                        <input className="login-input" type="password" name="password" onChange={this.handleInput} placeholder="Contraseña" />
+                    <form onSubmit={this.onSubmit} className="login-form" >
+                        <input className={this.state.errorChecker ? "login-input-error" : "login-input"} type="text" name="username" onChange={this.handleInput} placeholder="Nombre de usuario" />
+                        <input className={this.state.errorChecker ? "login-input-error" : "login-input"} type="password" name="password" onChange={this.handleInput} placeholder="Contraseña" />
+                        {this.state.errorChecker && <p className="error-message">Datos de acceso incorrecto</p>}
                         <input className="login-button" type="submit" value="iniciar sesión"/>
                     </form>
                 </div>

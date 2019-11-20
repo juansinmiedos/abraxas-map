@@ -17,13 +17,6 @@ h2{
   color: white;
 }
 
-form{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-}
-
 /* LOGIN VIEW */
 
 .general-background{
@@ -45,8 +38,15 @@ form{
   flex-direction: column;
 }
 
+.login-form{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
 .login-input{
-  margin-bottom: 15px;
+  margin-top: 15px;
   padding: 8px;
   border: none;
   border-bottom: 2px solid #4DAACB;
@@ -57,15 +57,32 @@ form{
   display: block;
 }
 
+.login-input-error{
+  margin-top: 15px;
+  padding: 8px;
+  border: none;
+  border-bottom: 2px solid #D23737;
+  color: #4DAACB;
+  background-color: #2F4250;
+  height: 30px;
+  width: 350px;
+  display: block;
+}
+
 .login-button{
   font-weight: 700;
-  margin-bottom: 25px;
+  margin-top: 25px;
   padding: 8px;
   height: 40px;
   width: 200px;
   color: white;
   background-color: #1E4B5F;
   border: 2px solid #306580;
+}
+
+.error-message{
+  color: #D23737;
+  font-size: 10px;
 }
 
 /* MAP VIEW */
