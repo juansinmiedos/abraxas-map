@@ -19,6 +19,8 @@ export default class Map extends Component {
             zoom: this.state.zoom
         });
 
+        console.log(this.props.region)
+
         if(this.state.selectedSection === 'Sector 1'){
             map.on('load', function () {
                 map.addLayer({
@@ -348,7 +350,6 @@ export default class Map extends Component {
                     });
             });
         }
-
     }
 
     render() {
