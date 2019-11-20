@@ -17,8 +17,6 @@ export default class Map extends Component {
             zoom: this.state.zoom
         });
 
-        console.log(this.state.guadalajara)
-
         map.on('load', function () {
             map.addLayer({
                 'id': 'guadalajara',
@@ -347,9 +345,9 @@ export default class Map extends Component {
 
     render() {
         return (
-            <div>
+            <>
                 <div ref={el => this.mapContainer = el} id='mapContainer' className="mapContainer" />
-            </div>
+            </>
         )
     }
 }
